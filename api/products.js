@@ -1,4 +1,4 @@
-import { kv } from '@vercel/kv';
+import { createClient } from '@vercel/kv';
 
 export default async function handler(req, res) {
   // CORS setup for local development and production
@@ -14,6 +14,15 @@ export default async function handler(req, res) {
     res.status(200).end();
     return;
   }
+  
+  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
+    return res.status(500).json({ error: 'Falta conectar la base de datos (KV) en Vercel. Las variables de entorno no existen.' });
+  }
+
+  const kv = createClient({
+    url: process.env.KV_REST_API_URL,
+    token: process.env.KV_REST_API_TOKEN,
+  });
   
   if (req.method === 'GET') {
     try {
@@ -43,3 +52,4 @@ export default async function handler(req, res) {
     res.status(405).json({ error: 'Method Not Allowed' });
   }
 }
+
