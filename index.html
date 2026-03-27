@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="ImportStoreCba – Productos importados premium en Córdoba. Vapes, perfumes árabes y de diseñador, accesorios y cuidado capilar. Envíos a todo Argentina." />
+  <meta name="keywords"
+    content="importstorecba, productos importados córdoba, vapes córdoba, perfumes árabes, airpods córdoba, comprar por whatsapp" />
+  <meta name="author" content="ImportStoreCba" />
+  <title>ImportStoreCba | Productos Importados Premium – Córdoba y Todo Argentina</title>
+
+  <!-- Open Graph para Meta Ads / Facebook / Instagram -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ImportStoreCba | Productos Importados Premium" />
+  <meta property="og:description"
+    content="Vapes, perfumes, accesorios y más. Retiro en Nueva Córdoba o envíos a todo el país. Pedidos por WhatsApp." />
+  <meta property="og:image" content="assets/images/vapes_hero.png" />
+  <meta property="og:url" content="https://importstorecba.com" />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ImportStoreCba | Productos Importados Premium" />
+  <meta name="twitter:description" content="Vapes, perfumes y más – Córdoba, envíos a todo Argentina." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Meta Pixel Placeholder (reemplazá con tu Pixel ID real) -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s){...}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'TU_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  -->
+</head>
+
+<body>
+
+  <!-- ============================================================
+       AGE GATE – Verificación de edad (+18)
+  ============================================================ -->
+  <div id="age-gate" class="age-gate" role="dialog" aria-modal="true" aria-label="Verificación de edad">
+    <div class="age-gate__card">
+      <div class="age-gate__icon">🔞</div>
+      <h2 class="age-gate__title">Contenido para adultos</h2>
+      <p class="age-gate__text">
+        Algunos productos de este sitio (vapes) son exclusivos para mayores de 18 años.<br />
+        ¿Tenés más de 18 años?
+      </p>
+      <div class="age-gate__actions">
+        <button id="age-yes" class="btn btn--primary">Sí, soy mayor de 18</button>
+        <button id="age-no" class="btn btn--ghost">No, salir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HEADER STICKY
+  ============================================================ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#hero" class="header__logo" aria-label="ImportStoreCba inicio">
+        <span class="logo__icon">📦</span>
+        <span class="logo__text">Import<strong>Store</strong>Cba</span>
+      </a>
+      <nav class="header__nav" aria-label="Navegación principal">
+        <a href="#vapes" class="nav__link">Vapes</a>
+        <a href="#perfumes-arabes" class="nav__link">Perfumes Árabes</a>
+        <a href="#perfumes-diseno" class="nav__link">Perfumes</a>
+        <a href="#accesorios" class="nav__link">Accesorios</a>
+        <a href="#cuidado-capilar" class="nav__link">Capilar</a>
+      </nav>
+      <div class="header__actions">
+        <!-- Botón de carrito en el header -->
+        <button class="header__cart-btn" onclick="openCart()" aria-label="Ver carrito">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+        </button>
+        <!-- Botón CTA WhatsApp -->
+        <a href="https://wa.me/5493804524621?text=Hola,%20quiero%20ver%20el%20catálogo%20de%20ImportStoreCba"
+          class="btn btn--whatsapp header__cta" target="_blank" rel="noopener noreferrer"
+          aria-label="Contactar por WhatsApp" data-event="header_whatsapp_click">
+          <span class="whatsapp-icon">💬</span> WhatsApp
+        </a>
+      </div>
+      <button class="header__menu-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Menú móvil">
+      <a href="#vapes" class="mobile-nav__link">💨 Vapes</a>
+      <a href="#perfumes-arabes" class="mobile-nav__link">ﷲ﷽ Perfumes Árabes</a>
+      <a href="#perfumes-diseno" class="mobile-nav__link">💎 Perfumes Diseñador</a>
+      <a href="#accesorios" class="mobile-nav__link">🎧 Accesorios</a>
+      <a href="#cuidado-capilar" class="mobile-nav__link">💆 Cuidado Capilar</a>
+      <a href="#faq" class="mobile-nav__link">❓ FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HERO SECTION
+    ============================================================ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg-overlay"></div>
+      <div class="container hero__content">
+        <div class="hero__badge animate-fade-in">
+          <span class="badge__dot"></span> Disponible ahora · Córdoba y todo Argentina
+        </div>
+        <h1 class="hero__title animate-slide-up">
+          Productos importados<br /><span class="gradient-text">premium</span><br />con entrega inmediata
+        </h1>
+        <p class="hero__subtitle animate-slide-up delay-1">
+          Retiro en persona en <strong>Nueva Córdoba</strong> o envíos a todo el país.<br />
+          Atención directa y personalizada por WhatsApp.
+        </p>
+        <div class="hero__checkmarks animate-slide-up delay-2">
+          <span class="check-item">✔ Atención personalizada</span>
+          <span class="check-item">⚡ Envíos en el día</span>
+          <span class="check-item">✔ Productos seleccionados</span>
+        </div>
+        <div class="hero__actions animate-slide-up delay-3">
+          <a href="https://wa.me/5493804524621?text=Hola,%20quiero%20hacer%20un%20pedido%20en%20ImportStoreCba"
+            class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener noreferrer" data-event="hero_main_cta"
+            onclick="trackEvent('hero_whatsapp_click')">
+            <span>💬</span> Hacer pedido ahora
+          </a>
+          <a href="#vapes" class="btn btn--outline btn--lg">Ver catálogo ↓</a>
+        </div>
+        <p class="hero__microcopy animate-fade-in delay-4">⚡ Respuesta rápida por WhatsApp</p>
+      </div>
+      <div class="hero__scroll-indicator" aria-hidden="true">
+        <span class="scroll-dot"></span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BLOQUE DE CONFIANZA INMEDIATA
+    ============================================================ -->
+    <section class="trust-bar">
+      <div class="container trust-bar__inner">
+        <div class="trust-item">
+          <span class="trust-icon">📍</span>
+          <div>
+            <strong>Retiro en Córdoba</strong>
+            <p>Nueva Córdoba, coordinado por WhatsApp</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🚚</span>
+          <div>
+            <strong>Envíos en el día</strong>
+            <p>Despachamos el mismo día a todo Argentina</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">💬</span>
+          <div>
+            <strong>Atención por WhatsApp</strong>
+            <p>Respuesta rápida y personalizada</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🔒</span>
+          <div>
+            <strong>Compra segura y simple</strong>
+            <p>Sin formularios complicados</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BLOQUE DE URGENCIA – Clave para tráfico frío Meta Ads
+    ============================================================ -->
+    <div class="urgency-bar" role="alert">
+      <div class="container urgency-bar__inner">
+        <span class="urgency-bar__icon">⚡</span>
+        <p>
+          <strong>Envíos en el día · Stock limitado.</strong>
+          <span> Pedí hoy y lo despachamos hoy mismo.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         CATEGORÍA: VAPES (+18)
+    ============================================================ -->
+    <section class="products-section" id="vapes" aria-label="Vapes">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__label">💨 Vapes</div>
+          <h2 class="section-header__title">Los más vendidos</h2>
+          <p class="section-header__sub">Modelos de alta duración con los mejores sabores importados</p>
+        </div>
+
+        <!-- Grid de productos vapes -->
+        <div class="products-grid">
+
+          <!-- PRODUCTO GANCHO – Ignite V40 -->
+          <article class="product-card" data-product="Ignite V40" data-price="$13.000">
+            <div class="product-card__badge product-card__badge--hot">🔥 Más accesible</div>
+            <div class="product-card__image-wrap">
+              <img src="assets/images/ignite_v40.png" alt="Ignite V40 – Vape Desechable" class="product-card__image"
+                loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Ignite V40</h3>
+              <p class="product-card__desc">Vape desechable premium. Sabores intensos de larga duración.</p>
+              <div class="product-card__price">$13.000</div>
+              <label class="variant-label" for="ignite-sabor">Elegí tu sabor:</label>
+              <select id="ignite-sabor" class="variant-select" aria-label="Sabor Ignite V40">
+                <option value="">— Seleccioná un sabor —</option>
+                <option value="Mixed Berries">Mixed Berries</option>
+                <option value="Strawberry Watermelon">Strawberry Watermelon</option>
+                <option value="Watermelon Ice">Watermelon Ice</option>
+                <option value="Strawberry Banana">Strawberry Banana</option>
+                <option value="Peach Mango Watermelon">Peach Mango Watermelon</option>
+              </select>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Ignite V40" data-price="$13.000"
+                data-select="ignite-sabor" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+          <!-- PRODUCTO MÁS ELEGIDO – Orion Bar -->
+          <article class="product-card product-card--featured" data-product="Lost Vape Orion Bar 10K"
+            data-price="$18.000">
+            <div class="product-card__badge product-card__badge--star">⭐ Más elegido</div>
+            <div class="product-card__image-wrap">
+              <img src="assets/images/orion_bar.png" alt="Lost Vape Orion Bar – 10.000 Puffs"
+                class="product-card__image img--contain" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Lost Vape Orion Bar</h3>
+              <p class="product-card__desc">10.000 Puffs · El equilibrio perfecto entre calidad y precio.</p>
+              <div class="product-card__price">$18.000</div>
+              <label class="variant-label" for="orion-sabor">Elegí tu sabor:</label>
+              <select id="orion-sabor" class="variant-select" aria-label="Sabor Orion Bar">
+                <option value="">— Seleccioná un sabor —</option>
+                <option value="Blue Razz Ice">Blue Razz Ice</option>
+                <option value="Peach Mango Watermelon">Peach Mango Watermelon</option>
+                <option value="Strawberry Summertime">Strawberry Summertime</option>
+                <option value="Strawberry Chew">Strawberry Chew</option>
+                <option value="Raspberry Sour Apple">Raspberry Sour Apple</option>
+              </select>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Lost Vape Orion Bar (10.000 Puffs)"
+                data-price="$18.000" data-select="orion-sabor" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+          <!-- PRODUCTO PREMIUM – Elf Bar Trio -->
+          <article class="product-card" data-product="Elf Bar Trio 40K" data-price="$31.500">
+            <div class="product-card__badge product-card__badge--crown">👑 Alta duración</div>
+            <div class="product-card__image-wrap">
+              <img src="assets/images/elfbar_trio.png" alt="Elf Bar Trio – 40.000 Puffs"
+                class="product-card__image img--contain" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Elf Bar Trio</h3>
+              <p class="product-card__desc">40.000 Puffs · El dispositivo premium de mayor duración del mercado.</p>
+              <div class="product-card__price">$31.500</div>
+              <label class="variant-label" for="elfbar-sabor">Elegí tu sabor:</label>
+              <select id="elfbar-sabor" class="variant-select" aria-label="Sabor Elf Bar Trio">
+                <option value="">— Seleccioná un sabor —</option>
+                <option value="Blue Razz Ice">Blue Razz Ice</option>
+                <option value="Watermelon Ice">Watermelon Ice</option>
+                <option value="Sour Apple Ice">Sour Apple Ice</option>
+              </select>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Elf Bar Trio (40.000 Puffs)"
+                data-price="$31.500" data-select="elfbar-sabor" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /products-grid vapes -->
+
+        <!-- CTA intermedio -->
+        <div class="section-cta">
+          <a href="https://wa.me/5493804524621?text=Hola,%20quiero%20consultar%20disponibilidad%20de%20vapes"
+            class="btn btn--outline-green" target="_blank" rel="noopener noreferrer" data-event="vapes_section_cta">
+            💬 Consultar disponibilidad de vapes
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CATEGORÍA: PERFUMES ÁRABES
+    ============================================================ -->
+    <section class="products-section products-section--dark" id="perfumes-arabes" aria-label="Perfumes Árabes">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__label">🌹 Perfumes Árabes</div>
+          <h2 class="section-header__title">Fragancias del Medio Oriente</h2>
+          <p class="section-header__sub">Importados directamente. Ideales para regalo. Stock limitado.</p>
+        </div>
+        <div class="products-grid products-grid--perfumes">
+
+          <article class="product-card product-card--perfume" data-product="Armaf – Club de Nuit Blue Iconic"
+            data-price="$67.999">
+            <div class="product-card__image-wrap">
+              <img src="assets/images/perfume_armaf_clubnuit.png" alt="Armaf Club de Nuit Blue Iconic"
+                class="product-card__image img--contain" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Armaf</p>
+              <h3 class="product-card__name">Club de Nuit Blue Iconic</h3>
+              <div class="product-card__price">$67.999</div>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Armaf – Club de Nuit Blue Iconic"
+                data-price="$67.999" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--perfume" data-product="Lattafa – Asad Bournon"
+            data-price="$68.000">
+            <div class="product-card__image-wrap">
+              <img src="assets/images/perfume_lattafa_asad.png" alt="Lattafa Asad Bournon"
+                class="product-card__image img--contain img--lg" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Lattafa</p>
+              <h3 class="product-card__name">Asad Bournon</h3>
+              <div class="product-card__price">$68.000</div>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Lattafa – Asad Bournon"
+                data-price="$68.000" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--perfume" data-product="Lattafa – Khamrah Black"
+            data-price="$45.999">
+            <div class="product-card__image-wrap">
+              <img src="assets/images/perfume_lattafa_khamrah.png" alt="Lattafa Khamrah Black"
+                class="product-card__image" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Lattafa</p>
+              <h3 class="product-card__name">Khamrah Black</h3>
+              <div class="product-card__price">$45.999</div>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Lattafa – Khamrah Black"
+                data-price="$45.999" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--perfume" data-product="Lattafa – Fakhar Black EDP 100ml"
+            data-price="$59.000">
+            <div class="product-card__image-wrap">
+              <img src="assets/images/perfume_lattafa_fakhar.png" alt="Lattafa Fakhar Black EDP"
+                class="product-card__image" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Lattafa</p>
+              <h3 class="product-card__name">Fakhar Black EDP 100ml</h3>
+              <div class="product-card__price">$59.000</div>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Lattafa – Fakhar Black EDP 100ml"
+                data-price="$59.000" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /products-grid perfumes arabes -->
+
+        <div class="section-cta">
+          <a href="https://wa.me/5493804524621?text=Hola,%20quiero%20consultar%20disponibilidad%20de%20perfumes%20árabes"
+            class="btn btn--outline-green" target="_blank" rel="noopener noreferrer">
+            💬 Consultar disponibilidad de perfumes árabes
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CATEGORÍA: PERFUMES DE DISEÑADOR
+    ============================================================ -->
+    <section class="products-section" id="perfumes-diseno" aria-label="Perfumes de Diseñador">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__label">💎 Perfumes de Diseñador</div>
+          <h2 class="section-header__title">Marcas internacionales</h2>
+          <p class="section-header__sub">Las firmas más exclusivas del mundo, disponibles en Córdoba.</p>
+        </div>
+        <div class="products-grid products-grid--perfumes">
+
+          <article class="product-card product-card--perfume" data-product="Valentino – Born in Roma"
+            data-price="$155.000">
+            <div class="product-card__badge product-card__badge--premium">💎 Premium</div>
+            <div class="product-card__image-wrap">
+              <img src="assets/images/perfume_valentino.png" alt="Valentino Born in Roma"
+                class="product-card__image img--contain img--sm" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Valentino</p>
+              <h3 class="product-card__name">Born in Roma</h3>
+              <div class="product-card__price">$155.000</div>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Valentino – Born in Roma"
+                data-price="$155.000" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--perfume" data-product="Jean Paul Gaultier – Le Male Elixir"
+            data-price="$140.000">
+            <div class="product-card__image-wrap">
+              <img src="assets/images/perfume_jpg_lemale.png" alt="Jean Paul Gaultier Le Male Elixir"
+                class="product-card__image" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Jean Paul Gaultier</p>
+              <h3 class="product-card__name">Le Male Elixir</h3>
+              <div class="product-card__price">$140.000</div>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Jean Paul Gaultier – Le Male Elixir"
+                data-price="$140.000" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--perfume" data-product="Chanel – Bleu de Chanel"
+            data-price="$149.999">
+            <div class="product-card__badge product-card__badge--star">⭐ Top ventas</div>
+            <div class="product-card__image-wrap">
+              <img src="assets/images/perfume_chanel_bleu.png" alt="Chanel Bleu de Chanel" class="product-card__image"
+                loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Chanel</p>
+              <h3 class="product-card__name">Bleu de Chanel</h3>
+              <div class="product-card__price">$149.999</div>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Chanel – Bleu de Chanel"
+                data-price="$149.999" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--perfume"
+            data-product="Giorgio Armani – Stronger With You Absolutely" data-price="$105.000">
+            <div class="product-card__image-wrap">
+              <img src="assets/images/perfume_armani.png" alt="Giorgio Armani Stronger With You Absolutely"
+                class="product-card__image" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Giorgio Armani</p>
+              <h3 class="product-card__name">Stronger With You Absolutely</h3>
+              <div class="product-card__price">$105.000</div>
+              <button class="btn btn--whatsapp btn--block order-btn"
+                data-product="Giorgio Armani – Stronger With You Absolutely" data-price="$105.000"
+                onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--perfume" data-product="Versace – Eros" data-price="$85.000">
+            <div class="product-card__image-wrap">
+              <img src="assets/images/perfume_versace.png" alt="Versace Eros" class="product-card__image"
+                loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Versace</p>
+              <h3 class="product-card__name">Eros</h3>
+              <div class="product-card__price">$85.000</div>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Versace – Eros" data-price="$85.000"
+                onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--perfume" data-product="Yves Saint Laurent – Myself Le Parfum"
+            data-price="$155.000">
+            <div class="product-card__badge product-card__badge--premium">💎 Premium</div>
+            <div class="product-card__image-wrap">
+              <img src="assets/images/perfume_ysl.png" alt="YSL Myself Le Parfum"
+                class="product-card__image img--contain img--sm" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Yves Saint Laurent</p>
+              <h3 class="product-card__name">Myself Le Parfum</h3>
+              <div class="product-card__price">$155.000</div>
+              <button class="btn btn--whatsapp btn--block order-btn"
+                data-product="Yves Saint Laurent – Myself Le Parfum" data-price="$155.000" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /products-grid perfumes diseñador -->
+
+        <div class="section-cta">
+          <a href="https://wa.me/5493804524621?text=Hola,%20quiero%20consultar%20sobre%20perfumes%20de%20diseñador"
+            class="btn btn--outline-green" target="_blank" rel="noopener noreferrer">
+            💬 Consultar disponibilidad de perfumes
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CATEGORÍA: ACCESORIOS
+    ============================================================ -->
+    <section class="products-section products-section--dark" id="accesorios" aria-label="Accesorios">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__label">🎧 Accesorios</div>
+          <h2 class="section-header__title">Tecnología premium</h2>
+          <p class="section-header__sub">Los dispositivos más buscados del momento.</p>
+        </div>
+        <div class="products-grid products-grid--single">
+
+          <article class="product-card product-card--featured" data-product="AirPods Pro 2da Generación (Simil)"
+            data-price="$19.990">
+            <div class="product-card__badge product-card__badge--hot">🔥 Muy buscado</div>
+            <div class="product-card__image-wrap">
+              <img src="assets/images/airpods_pro.png" alt="AirPods Pro 2da Generación" class="product-card__image"
+                loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">AirPods Pro 2da Generación</h3>
+              <p class="product-card__desc">Simil. Cancelación activa de ruido, calidad de audio superior, estuche de
+                carga.</p>
+              <div class="product-card__price">$19.990</div>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="AirPods Pro 2da Generación (Simil)"
+                data-price="$19.990" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="section-cta">
+          <a href="https://wa.me/5493804524621?text=Hola,%20quiero%20consultar%20disponibilidad%20de%20los%20AirPods%20Pro"
+            class="btn btn--outline-green" target="_blank" rel="noopener noreferrer">
+            💬 Consultar disponibilidad
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CATEGORÍA: CUIDADO CAPILAR
+    ============================================================ -->
+    <section class="products-section" id="cuidado-capilar" aria-label="Cuidado Capilar">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__label">💆 Cuidado Capilar</div>
+          <h2 class="section-header__title">Karseell – Tratamiento profesional</h2>
+          <p class="section-header__sub">La línea capilar importada que está revolucionando el mercado.</p>
+        </div>
+        <div class="products-grid products-grid--duo">
+
+          <article class="product-card" data-product="Karseell Crema Capilar 500ml" data-price="$20.000">
+            <div class="product-card__image-wrap">
+              <img src="assets/images/karseell_crema.png" alt="Karseell Crema Capilar 500ml" class="product-card__image"
+                loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Karseell</p>
+              <h3 class="product-card__name">Crema Capilar 500ml</h3>
+              <p class="product-card__desc">Tratamiento profundo con aceites naturales. Hidratación intensa y
+                recuperación del cabello dañado.</p>
+              <div class="product-card__price">$20.000</div>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Karseell Crema Capilar 500ml"
+                data-price="$20.000" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card" data-product="Karseell Aceite Capilar 50ml" data-price="$18.000">
+            <div class="product-card__image-wrap">
+              <img src="assets/images/karseell_aceite.png" alt="Karseell Aceite Capilar 50ml"
+                class="product-card__image img--contain img--sm" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__brand">Karseell</p>
+              <h3 class="product-card__name">Aceite Capilar 50ml</h3>
+              <p class="product-card__desc">Aceite esencial concentrado. Brillo, suavidad y control del frizz desde la
+                primera aplicación.</p>
+              <div class="product-card__price">$18.000</div>
+              <button class="btn btn--whatsapp btn--block order-btn" data-product="Karseell Aceite Capilar 50ml"
+                data-price="$18.000" onclick="addToCart(this)">
+                <span class="cart-action-icon">🛒</span>
+                Agregar al Carrito
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="section-cta">
+          <a href="https://wa.me/5493804524621?text=Hola,%20quiero%20consultar%20sobre%20los%20productos%20Karseell"
+            class="btn btn--outline-green" target="_blank" rel="noopener noreferrer">
+            💬 Consultar sobre Karseell
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN DE CONFIANZA – Garantías
+    ============================================================ -->
+    <section class="trust-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">¿Por qué elegirnos?</h2>
+        </div>
+        <div class="trust-cards">
+          <div class="trust-card">
+            <div class="trust-card__icon">✅</div>
+            <h3>Garantía de satisfacción</h3>
+            <p>Si hay algún problema con tu pedido, lo resolvemos de inmediato.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card__icon">💬</div>
+            <h3>Atención directa por WhatsApp</h3>
+            <p>Sin intermediarios. Hablás directo con quien te despacha el pedido.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card__icon">📦</div>
+            <h3>Coordinación personalizada</h3>
+            <p>Organizamos la entrega según lo que más te convenga.</p>
+          </div>
+          <div class="trust-card">
+            <div class="trust-card__icon">⚡</div>
+            <h3>Compra rápida y sin fricciones</h3>
+            <p>Sin formularios, sin demoras. Un mensaje y listo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN DE REFERENCIAS / TESTIMONIOS
+    ============================================================ -->
+    <section class="reviews-section" id="referencias" aria-label="Opiniones de clientes">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__label">⭐ Referencias</div>
+          <h2 class="section-header__title">Lo que dicen nuestros clientes</h2>
+          <p class="section-header__sub">Cientos de pedidos despachados en Córdoba y todo Argentina</p>
+        </div>
+
+        <!-- Tarjetas de texto -->
+        <div class="reviews-grid">
+
+          <div class="review-card">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">"Pedí el Orion Bar, me llegó ese mismo día. La comunicación por WhatsApp fue
+              súper fluida. Ya hice 3 pedidos y siempre igual de buen servicio."</p>
+            <div class="review-card__author">
+              <img src="assets/images/avatar_tomas.png" alt="Martín G." class="review-card__avatar img-cover" />
+              <div>
+                <strong>Martín G.</strong>
+                <span>Córdoba Capital</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">"Compré el Bleu de Chanel y llegó perfecto, bien embalado y rápido. El precio
+              es muy bueno comparado con otras tiendas. Súper recomendado."</p>
+            <div class="review-card__author">
+              <img src="assets/images/avatar_carla.png" alt="Sofía R." class="review-card__avatar img-cover" />
+              <div>
+                <strong>Sofía R.</strong>
+                <span>Mendoza</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">"Excelente atención. Me respondieron al toque y me ayudaron a elegir el
+              perfume. El Khamrah Black es una locura de fragancia. Volvería sin dudarlo."</p>
+            <div class="review-card__author">
+              <img src="assets/images/avatar_matias.png" alt="Federico L." class="review-card__avatar img-cover" />
+              <div>
+                <strong>Federico L.</strong>
+                <span>Buenos Aires</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">"Retiré en persona en Nueva Córdoba. Diez puntos. El Elf Bar Trio es increíble
+              la duración. Ya lo recomendé a varios amigos."</p>
+            <div class="review-card__author">
+              <img src="assets/images/avatar_lucia.png" alt="Lucía V." class="review-card__avatar img-cover" />
+              <div>
+                <strong>Lucía V.</strong>
+                <span>Nueva Córdoba</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">"Compré los AirPods y el Ignite V40 en el mismo pedido. Enviaron todo el mismo
+              día. Todo arrived in perfect condition. 100% recomendado."</p>
+            <div class="review-card__author">
+              <img src="assets/images/avatar_nico.png" alt="Nicolás B." class="review-card__avatar img-cover" />
+              <div>
+                <strong>Nicolás B.</strong>
+                <span>Rosario</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /reviews-grid -->
+
+        <!-- Fotos de entregas -->
+        <div class="delivery-photos">
+          <h3 class="delivery-photos__title">📦 Fotos de clientes que recibieron sus pedidos</h3>
+          <div class="delivery-photos__grid">
+            <div class="delivery-photo">
+              <img src="assets/images/review_vape.png" alt="Cliente recibió su vape Ignite V40" loading="lazy" />
+              <span class="delivery-photo__label">Ignite V40 · Envío a domicilio</span>
+            </div>
+            <div class="delivery-photo">
+              <img src="assets/images/review_perfume.png" alt="Cliente recibió su perfume árabe" loading="lazy" />
+              <span class="delivery-photo__label">Perfume árabe · Retiro en Córdoba</span>
+            </div>
+            <div class="delivery-photo">
+              <img src="assets/images/review_airpods.png" alt="Cliente recibió sus AirPods Pro" loading="lazy" />
+              <span class="delivery-photo__label">AirPods Pro · Envío en el día</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ – Preguntas frecuentes (reduce objeciones tráfico frío)
+    ============================================================ -->
+    <section class="faq-section" id="faq" aria-label="Preguntas frecuentes">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header__label">❓ FAQ</div>
+          <h2 class="section-header__title">Preguntas frecuentes</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Hacen envíos a todo el país?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Sí, enviamos a todo Argentina por correo o encomienda. El costo y tiempo de envío se coordinan
+                directamente por WhatsApp según tu ubicación.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Se puede retirar en Córdoba?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Sí. Podés retirar en persona en Nueva Córdoba. La dirección exacta y el horario se coordinan por
+                WhatsApp al confirmar el pedido.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cuánto tarda la respuesta por WhatsApp?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Respondemos en minutos durante el horario de atención. Nuestro objetivo es que tengas una respuesta
+                rápida y clara para cerrar tu pedido sin esperas.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Los productos son originales/importados?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Sí, todos nuestros productos son importados. Trabajamos directamente con proveedores seleccionados para
+                garantizar calidad en cada pedido. Cualquier duda sobre un producto específico la podés consultar por
+                WhatsApp.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Cómo hago un pedido?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Simplemente hacé clic en el botón "Pedir por WhatsApp" del producto que te interese. Se genera
+                automáticamente un mensaje con el nombre del producto y el precio. Nosotros te confirmamos
+                disponibilidad y te guiamos en el proceso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA FINAL POTENTE
+    ============================================================ -->
+    <section class="cta-final" aria-label="Llamada a la acción final">
+      <div class="container cta-final__inner">
+        <div class="cta-final__text">
+          <h2 class="cta-final__title">¿Listo para hacer tu pedido?</h2>
+          <p class="cta-final__sub">Escribinos ahora y te atendemos al instante.<br />Fácil, rápido, sin complicaciones.
+          </p>
+        </div>
+        <a href="https://wa.me/5493804524621?text=Hola,%20quiero%20hacer%20un%20pedido%20en%20ImportStoreCba"
+          class="btn btn--whatsapp btn--xl" target="_blank" rel="noopener noreferrer" data-event="final_cta_click"
+          onclick="trackEvent('final_cta_whatsapp')">
+          💬 Hablar por WhatsApp ahora
+        </a>
+        <p class="cta-final__microcopy">Atención rápida · Córdoba y todo Argentina</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INSTAGRAM CTA
+    ============================================================ -->
+    <section class="instagram-section" style="text-align: center; padding: var(--space-2xl) 0; background: var(--bg-secondary); border-top: 1px solid var(--surface-border);">
+      <div class="container">
+        <h2 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 0.5rem;">Seguinos en Instagram</h2>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-lg); max-width: 500px; margin-inline: auto;">Enterate de nuevos ingresos, reposiciones de vapes y promos exclusivas antes que nadie.</p>
+        <a href="https://www.instagram.com/importstorecba/" target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="border-color: #E1306C; color: #E1306C;">
+          <span style="font-size: 1.25rem;">📸</span> @importstorecba
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="logo__icon">📦</span>
+        <span class="logo__text">Import<strong>Store</strong>Cba</span>
+        <p class="footer__tagline">Productos importados premium en Córdoba</p>
+      </div>
+      <div class="footer__links">
+        <h4>Categorías</h4>
+        <a href="#vapes">Vapes</a>
+        <a href="#perfumes-arabes">Perfumes Árabes</a>
+        <a href="#perfumes-diseno">Perfumes Diseñador</a>
+        <a href="#accesorios">Accesorios</a>
+        <a href="#cuidado-capilar">Cuidado Capilar</a>
+      </div>
+      <div class="footer__contact">
+        <h4>Contacto</h4>
+        <a href="https://wa.me/5493804524621" target="_blank" rel="noopener noreferrer" class="footer__social">
+          <span>💬</span> WhatsApp
+        </a>
+        <a href="https://instagram.com/importstorecba" target="_blank" rel="noopener noreferrer" class="footer__social">
+          <span>📸</span> Instagram
+        </a>
+        <address class="footer__address">
+          📍 Córdoba Capital, Nueva Córdoba<br />
+          🚚 Envíos a todo Argentina
+        </address>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>© 2026 ImportStoreCba – Todos los derechos reservados.</p>
+        <p class="footer__legal">
+          🔞 Los vapes son productos destinados exclusivamente a mayores de 18 años. El consumo de nicotina es
+          perjudicial para la salud.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       BOTÓN FLOTANTE WHATSAPP
+  ============================================================ -->
+  <a href="https://wa.me/5493804524621?text=Hola,%20quiero%20hacer%20un%20pedido%20en%20ImportStoreCba"
+    class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" id="whatsapp-fab"
+    data-event="fab_whatsapp_click">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+    <span class="whatsapp-fab__tooltip">¡Escribinos!</span>
+  </a>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+
+  <!-- ============================================================
+       CART SIDEBAR
+  ============================================================ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Tu Carrito</h2>
+      <button class="cart-close" onclick="closeCart()" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Items via JS -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <strong id="cartTotalText">$0</strong>
+      </div>
+      <button class="btn btn--whatsapp btn--block" onclick="checkoutCart()">
+        <svg class="whatsapp-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12.01 2.01c-5.52 0-10 4.48-10 10 0 1.98.58 3.82 1.57 5.4l-1.57 4.59 4.77-1.5c1.54.91 3.33 1.45 5.23 1.45 5.52 0 10-4.48 10-10s-4.48-10-10-10zm0 18.06c-1.66 0-3.2-.42-4.57-1.15l-.33-.19-3.4 1.07 1.09-3.32-.21-.34c-.79-1.28-1.25-2.77-1.25-4.37 0-4.66 3.79-8.45 8.45-8.45s8.45 3.79 8.45 8.45-3.79 8.45-8.45 8.45zm4.63-6.27c-.25-.13-1.5-.74-1.73-.83-.23-.09-.4-.13-.57.13-.17.25-.66.83-.81 1-.15.17-.3.19-.55.06-1.3-.65-2.22-1.42-3.04-3.23-.09-.2-.01-.31.12-.43.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.09-.17.04-.32-.02-.45-.19-.45-.57-1.42-.78-1.95-.21-.51-.42-.44-.57-.45h-.49c-.17 0-.45.06-.68.32-.23.25-.87.85-.87 2.08s.89 2.42 1.02 2.59c.13.17 1.77 2.7 4.28 3.78 1.42.61 2.02.66 2.76.55.6-.09 1.5-.61 1.71-1.21.21-.6.21-1.11.15-1.21-.06-.11-.23-.17-.48-.3z" />
+        </svg>
+        Pedir por WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- Cart Floating Button -->
+  <button class="cart-fab" onclick="openCart()" aria-label="Ver carrito">
+    🛒 <span class="cart-badge" id="cartBadge">0</span>
+  </button>
+
+</body>
+
+</html>
