@@ -317,19 +317,6 @@ function ProductsContainer() {
 
   return (
     <div className="react-tabs-container">
-      {/* Tab Navigation */}
-      <div className="tabs-nav container">
-        {categories.map(key => (
-          <button 
-            key={key} 
-            className={`tab-btn ${activeTabKey === key ? 'active' : ''}`}
-            onClick={() => setActiveTabKey(key)}
-          >
-            {dbData[key].tabLabel}
-          </button>
-        ))}
-      </div>
-
       {/* Tab Content */}
       <section 
         className={`products-section ${activeCategory.theme}`} 
