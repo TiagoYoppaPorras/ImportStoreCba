@@ -96,6 +96,7 @@ function AdminPanel() {
         <form onSubmit={handleLogin} className="bg-white p-8 rounded shadow-md w-96">
           <h2 className="text-2xl font-bold mb-4 text-center">Admin Login</h2>
           <p className="text-sm text-gray-500 mb-4 text-center">Ingresá tu contraseña de Vercel</p>
+          {msg && <p className={`text-sm mb-4 text-center font-bold ${msg === 'Validando...' ? 'text-blue-500' : 'text-red-500'}`}>{msg}</p>}
           <input 
             type="password" 
             value={secret} 
