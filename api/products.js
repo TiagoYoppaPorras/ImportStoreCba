@@ -42,6 +42,9 @@ export default async function handler(req, res) {
     
     try {
       const newData = req.body;
+      if (newData && newData.action === 'verify') {
+        return res.status(200).json({ success: true, message: 'Valid' });
+      }
       await kv.set('store_products', newData);
       res.status(200).json({ success: true, message: 'Catálogo actualizado correctamente en Vercel KV' });
     } catch (error) {

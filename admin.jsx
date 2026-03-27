@@ -65,10 +65,28 @@ function AdminPanel() {
     fetchCatalog();
   }, []);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if(secret.trim().length > 0) {
-      setLoggedIn(true);
+      setMsg('Validando...');
+      try {
+        const res = await fetch('/api/products', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${secret}`
+          },
+          body: JSON.stringify({ action: 'verify' })
+        });
+        if (res.ok) {
+          setMsg('');
+          setLoggedIn(true);
+        } else {
+          setMsg('Contraseña incorrecta, intente de nuevo.');
+        }
+      } catch (err) {
+        setMsg('Error de conexión al validar.');
+      }
     }
   };
 
